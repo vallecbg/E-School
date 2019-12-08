@@ -25,7 +25,9 @@ namespace ESchool.Services.Constants
         public const string LoginError = "Wrong username or password!";
 
         //Roles
-        public const string DefaultRole = "user";
+        public const string StudentRole = "student";
+        public const string TeacherRole = "teacher";
+        public const string ParentRole = "parent";
         public const string AdminRole = "admin";
         public const string Admin = "admin";
 

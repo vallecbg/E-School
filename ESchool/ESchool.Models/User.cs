@@ -9,8 +9,11 @@ namespace ESchool.Models
     {
         public User()
         {
+            this.UserAnswers = new List<UserAnswer>();
         }
-
+        //TODO: add firstname lastname
         public string Name { get; set; }
+
+        public ICollection<UserAnswer> UserAnswers { get; set; }
     }
 }

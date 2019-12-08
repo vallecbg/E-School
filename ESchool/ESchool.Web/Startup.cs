@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ESchool.Data;
 using ESchool.Models;
+using ESchool.Services;
+using ESchool.Services.Contracts;
+using ESchool.Services.Mapper;
 using ESchool.Web.HelperMethods;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -56,9 +60,9 @@ namespace ESchool.Web
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
             //TODO: add services
-            //services.AddTransient<IUserService, UserService>();
-            //TODO: add automapper
-            //services.AddAutoMapper(x => x.AddProfile<MapperProfile>());
+            services.AddTransient<IUserService, UserService>();
+            
+            services.AddAutoMapper(x => x.AddProfile<MapperProfile>());
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -66,6 +70,7 @@ namespace ESchool.Web
                 options.LogoutPath = $"/Users/Logout";
             });
 
+            //TODO: add signalr
             //services.AddSignalR();
 
             services.Configure<SecurityStampValidatorOptions>(options => options.ValidationInterval = TimeSpan.FromSeconds(10));
