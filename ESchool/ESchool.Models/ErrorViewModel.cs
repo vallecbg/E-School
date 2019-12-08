@@ -1,6 +1,8 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace ESchool.Web.Models
+namespace ESchool.Models
 {
     public class ErrorViewModel
     {

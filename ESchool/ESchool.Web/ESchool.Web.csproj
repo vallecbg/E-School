@@ -15,6 +15,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\ESchool.Data\ESchool.Data.csproj" />
     <ProjectReference Include="..\ESchool.Models\ESchool.Models.csproj" />
   </ItemGroup>
 

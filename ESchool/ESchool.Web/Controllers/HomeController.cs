@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ESchool.Web.Models;
+using ESchool.Models;
 
 namespace ESchool.Web.Controllers
 {
