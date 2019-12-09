@@ -6,6 +6,8 @@ namespace ESchool.ViewModels.Constants
 {
     public class ViewModelsConstants
     {
+        public const string ImageDisplay = "Image";
+
         //Users
         public const int UserModelNameMaxLength = 100;
         public const int UserModelNameMinLength = 3;

@@ -62,6 +62,7 @@ namespace ESchool.Web
             //TODO: add services
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IExamService, ExamService>();
+            services.AddTransient<IQuestionService, QuestionService>();
 
             services.AddAutoMapper(x => x.AddProfile<MapperProfile>());
 

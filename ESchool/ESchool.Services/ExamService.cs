@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -25,6 +26,13 @@ namespace ESchool.Services
             await this.Context.SaveChangesAsync();
 
             return exam.Id;
+        }
+
+        public Exam FindById(string id)
+        {
+            var exam = this.Context.Exams.Find(id);
+
+            return exam;
         }
     }
 }

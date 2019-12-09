@@ -18,6 +18,7 @@ namespace ESchool.Services.Constants
         public class RouteConstants
         {
             public const string Administration = "Administration";
+            public const string CreateQuestionRoute = "/Question/Create/{examId}";
         }
 
         //Users
@@ -50,5 +51,8 @@ namespace ESchool.Services.Constants
         //Acts
         public const string Success = "Success";
         public const string Failed = "Failed the task";
+
+        //Ids
+        public const string ExamId = "examId";
     }
 }

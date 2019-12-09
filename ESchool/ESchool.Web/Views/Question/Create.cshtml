@@ -1,0 +1,52 @@
+﻿@model QuestionInputModel
+@{
+    ViewData["Title"] = "Create Question";
+    var error = ViewData[GlobalConstants.ModelError];
+    var examId = ViewData[GlobalConstants.ExamId].ToString();
+}
+
+<section class="banner-area" id="home">
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+            <div class="col-md-6">
+                <h2 class="d-flex justify-content-center text-light">@ViewData["Title"]</h2>
+                <hr class="h2" />
+                <form enctype="multipart/form-data" class="mx-auto" asp-controller="Question" asp-action="Create" method="post">
+                    @if (error != null)
+                    {
+                        <p class="text-danger">@error</p>
+                    }
+                    <div class="form-group text-center">
+                        <label asp-for="QuestionText" class="text-center text-light"></label>
+                        <input asp-for="QuestionText" class="form-control" placeholder="Question..." />
+                        <span asp-validation-for="QuestionText" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <label asp-for="Marks" class="text-center text-light"></label>
+                        <input asp-for="Marks" class="form-control" type="number" placeholder="Marks..." />
+                        <span asp-validation-for="Marks" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-center">
+                        <label asp-for="Image" class="text-center text-light"></label>
+                        <input type="file" asp-for="Image" class="form-control" name="Image" />
+                        @if (ViewData.ContainsKey(GlobalConstants.Error))
+                        {
+                            <div class="row col-md-12">
+                                <span class="row ml-1 text-danger ">@ViewData[GlobalConstants.Error]</span>
+                            </div>
+                        }
+                    </div>
+
+                    <input type="hidden" value="@examId" asp-for="ExamId" />
+
+                    <hr class="h2" />
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-info">Create</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
