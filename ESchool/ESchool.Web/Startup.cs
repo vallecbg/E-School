@@ -61,7 +61,8 @@ namespace ESchool.Web
 
             //TODO: add services
             services.AddTransient<IUserService, UserService>();
-            
+            services.AddTransient<IExamService, ExamService>();
+
             services.AddAutoMapper(x => x.AddProfile<MapperProfile>());
 
             services.ConfigureApplicationCookie(options =>

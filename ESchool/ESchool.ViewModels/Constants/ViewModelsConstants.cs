@@ -20,5 +20,12 @@ namespace ESchool.ViewModels.Constants
             "Your username should contains only latin alphabet symbols, spaces and numbers!";
 
         public const string DisplayConfirmPassword = "Confirm Password";
+
+        //Exams
+        public const int NameMaxLength = 100;
+        public const int NameMinLength = 3;
+        public const int DescriptionMaxLength = 500;
+        public const int DescriptionMinLength = 5;
+
     }
 }

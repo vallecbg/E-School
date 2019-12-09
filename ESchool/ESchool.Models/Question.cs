@@ -12,6 +12,6 @@ namespace ESchool.Models
 
         public double Marks { get; set; }
 
-        public string ImageURL { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
