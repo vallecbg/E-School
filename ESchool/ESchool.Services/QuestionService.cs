@@ -14,12 +14,10 @@ namespace ESchool.Services
 {
     public class QuestionService : BaseService, IQuestionService
     {
-        private readonly IExamService examService;
 
-        public QuestionService(UserManager<User> userManager, ESchoolContext context, IMapper mapper, IExamService examService) 
+        public QuestionService(UserManager<User> userManager, ESchoolContext context, IMapper mapper) 
             : base(userManager, context, mapper)
         {
-            this.examService = examService;
         }
 
         public async Task<string> Create(QuestionInputModel model)
@@ -31,8 +29,6 @@ namespace ESchool.Services
             var question = Mapper.Map<Question>(model);
 
             question.ImageUrl = url ?? GlobalConstants.NoImageAvailableUrl;
-            question.ExamId = examService.FindById(model.ExamId).Id;
-            //TODO: find if needed to set also the exam property
 
             this.Context.Questions.Add(question);
             await this.Context.SaveChangesAsync();

@@ -30,6 +30,7 @@ namespace ESchool.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new QuestionConfiguration());
 
             base.OnModelCreating(builder);
         }

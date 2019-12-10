@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ESchool.Models
+namespace ESchool.ViewModels.InputModels.Answer
 {
-    public class OfferedAnswer
+    public class AnswerInputModel
     {
-        public string Id { get; set; }
-
         public string AnswerText { get; set; }
 
         public string QuestionId { get; set; }
-        public Question Question { get; set; }
     }
 }

@@ -19,8 +19,8 @@ namespace ESchool.Models
 
         public string ImageUrl { get; set; }
 
-        public string CorrectAnswerId { get; set; }
-        public OfferedAnswer CorrectAnswer { get; set; }
+        public string OfferedAnswerId { get; set; }
+        public OfferedAnswer OfferedAnswer { get; set; }
 
         public ICollection<OfferedAnswer> PossibleAnswers { get; set; }
 

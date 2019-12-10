@@ -19,6 +19,7 @@ namespace ESchool.Services.Constants
         {
             public const string Administration = "Administration";
             public const string CreateQuestionRoute = "/Question/Create/{examId}";
+            public const string CreateAnswerRoute = "/Answer/Create/{questionId}";
         }
 
         //Users
@@ -54,5 +55,6 @@ namespace ESchool.Services.Constants
 
         //Ids
         public const string ExamId = "examId";
+        public const string QuestionId = "questionId";
     }
 }
