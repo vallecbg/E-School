@@ -38,5 +38,13 @@ namespace ESchool.Web.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public IActionResult Details(string id)
+        {
+            var result = this.examService.GetExamDetails(id);
+
+            return this.View(result);
+        }
     }
 }

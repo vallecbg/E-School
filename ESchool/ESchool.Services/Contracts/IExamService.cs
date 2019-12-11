@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ESchool.Models;
 using ESchool.ViewModels.InputModels.Exams;
+using ESchool.ViewModels.OutputModels.Exam;
 
 namespace ESchool.Services.Contracts
 {
@@ -12,5 +13,7 @@ namespace ESchool.Services.Contracts
         Task<string> CreateExam(ExamInputModel model);
 
         Exam FindById(string id);
+
+        ExamOutputModel GetExamDetails(string examId);
     }
 }

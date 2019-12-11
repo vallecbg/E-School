@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="OutputModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ESchool.Data\ESchool.Data.csproj" />
   </ItemGroup>
 

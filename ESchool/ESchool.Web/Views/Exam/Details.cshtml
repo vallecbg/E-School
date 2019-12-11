@@ -1,0 +1,80 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+@model ExamOutputModel
+@inject UserManager<User> UserManager
+@{
+    ViewData["Title"] = "Exam Details";
+    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<section class="banner-area relative" id="home">
+    <div class="container">
+        <main class="pt-100 pb-100">
+            <div class="container dark-grey-text  card justify-content-start">
+
+                <!--Grid row-->
+                <div class="row wow fadeIn">
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-md-8 mb-4">
+
+                        <!--Content-->
+                        <div class="p-4">
+
+                            <h1 class="lead font-weight-bold">@Model.Name</h1>
+
+                            <p>
+                                Description: (@Model.Description)<br />
+                                Start: @Model.StartDate <br/>
+                                End: @Model.EndDate <br/>
+                                IsOpen: @Model.IsOpen <br/> 
+                                Max Marks: @Model.MaxMarks <br/>
+                            </p>
+
+                        </div>
+                        <!--Content-->
+                        @*@if (isOwner)
+                        {
+                            <div class="col-lg-12 col-sm-12">
+                                <a class="btn btn-warning text-white" asp-controller="Robots" asp-action="Edit" asp-route-id="@Model.Id">Edit <i class="fas fa-edit text-light"></i></a>
+                                <a class="btn btn-danger" asp-controller="Robots" asp-action="Delete" asp-route-id="@Model.Id">Delete <i class="fas fa-trash"></i></a>
+                                <a class="btn btn-success" asp-controller="Delivery" asp-action="Create" asp-route-id="@Model.Id">Ship <i class="fas fa-shipping-fast"></i></a>
+                            </div>
+                        }*@
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+
+                <hr>
+
+                @*<!--Grid row-->
+                <div class="row d-flex justify-content-center wow fadeIn">
+                    <!--Grid column-->
+                    @if (assembliesCount == 0)
+                    {
+                        <div class="col-md-6 text-center pb-100">
+                            <h4 class="my-4 h4">You don't have an Assembly yet?</h4>
+                            <form enctype="multipart/form-data" class="mx-auto" asp-controller="Assembly" asp-action="Create" method="post">
+                                <input type="hidden" value="@Model.Id" name="robotId" id="robotId" />
+                                <button type="submit" class="btn btn-success btn-large"><i class="fas fa-plus-circle"></i> Create Now</button>
+                            </form>
+                        </div>
+                        <!--Grid column-->
+                    }
+                    else
+                    {
+                        <div class="col-md-12 text-center">
+                            <h4 class="my-4 h4">Assembly ID: @Model.AssemblyId</h4>
+                            <a class="btn btn-success text-light mb-3" asp-controller="SubAssembly" asp-action="Create" asp-route-assemblyId="@Model.AssemblyId"><i class="fa fa-plus-square"></i> Create Sub Assembly</a>
+                            @await Html.PartialAsync("RobotsAssembliesPartial", Model.SubAssemblies)
+                        </div>
+                    }
+                    <!--Grid column-->
+
+                </div>*@
+            </div>
+        </main>
+        <!--Main layout-->
+    </div>
+</section>
+
