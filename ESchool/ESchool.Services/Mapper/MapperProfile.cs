@@ -33,7 +33,7 @@ namespace ESchool.Services.Mapper
 
             CreateMap<AnswerInputModel, OfferedAnswer>()
                 .ForMember(x => x.AnswerText, cfg => cfg.MapFrom(x => x.AnswerText))
-                .ForMember(x => x.QuestionId, cfg => cfg.MapFrom(x => x.QuestionId));
+                .ForMember(x => x.IsCorrect, cfg => cfg.MapFrom(x => x.IsCorrect));
             //TODO: think if need to add ignore all other
         }
 

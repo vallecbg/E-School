@@ -22,6 +22,12 @@
                         <span asp-validation-for="AnswerText" class="text-danger"></span>
                     </div>
 
+                    <div class="form-group text-center">
+                        <label asp-for="IsCorrect" class="text-center text-light"></label>
+                        <input asp-for="IsCorrect" class="form-control" placeholder="IsCorrect..." />
+                        <span asp-validation-for="IsCorrect" class="text-danger"></span>
+                    </div>
+
                     <input type="hidden" value="@questionId" asp-for="QuestionId" />
 
                     <hr class="h2" />

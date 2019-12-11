@@ -8,6 +8,8 @@ namespace ESchool.ViewModels.InputModels.Answer
     {
         public string AnswerText { get; set; }
 
+        public bool IsCorrect { get; set; }
+
         public string QuestionId { get; set; }
     }
 }

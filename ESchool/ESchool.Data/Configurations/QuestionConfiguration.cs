@@ -11,9 +11,6 @@ namespace ESchool.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Question> builder)
         {
-            builder.HasOne(x => x.OfferedAnswer)
-                .WithOne(x => x.Question)
-                .HasForeignKey<OfferedAnswer>(x => x.QuestionId);
         }
     }
 }
