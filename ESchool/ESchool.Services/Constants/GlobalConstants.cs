@@ -20,6 +20,9 @@ namespace ESchool.Services.Constants
             public const string Administration = "Administration";
             public const string CreateQuestionRoute = "/Question/Create/{examId}";
             public const string CreateAnswerRoute = "/Answer/Create/{questionId}";
+
+            public const string ApiRoute = "api/";
+            public const string Exams = "Exams";
         }
 
         //Users

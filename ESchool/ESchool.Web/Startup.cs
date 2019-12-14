@@ -60,6 +60,7 @@ namespace ESchool.Web
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
             //TODO: add services
+            services.AddTransient<IApiService, ApiService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IExamService, ExamService>();
             services.AddTransient<IQuestionService, QuestionService>();
@@ -84,6 +85,7 @@ namespace ESchool.Web
                     options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
                 });
 
+            //TODO: add filters
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
