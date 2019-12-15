@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ESchool.Models;
 
-namespace ESchool.Models
+namespace ESchool.ViewModels.InputModels.Exams
 {
-    public class UserAnswer
+    public class ExamSolveInputModel
     {
-        public UserAnswer()
+        public ExamSolveInputModel()
         {
             this.SelectedAnswers = new List<OfferedAnswer>();
         }
 
-        public string Id { get; set; }
-
         public string ExamId { get; set; }
-        public Exam Exam { get; set; }
 
         public string UserId { get; set; }
-        public User User { get; set; }
-
         public ICollection<OfferedAnswer> SelectedAnswers { get; set; }
     }
 }

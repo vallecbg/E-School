@@ -15,5 +15,7 @@ namespace ESchool.Services.Contracts
         Exam FindById(string id);
 
         ExamOutputModel GetExamDetails(string examId);
+
+        
     }
 }
