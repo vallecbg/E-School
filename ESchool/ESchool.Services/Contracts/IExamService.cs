@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ESchool.Models;
 using ESchool.ViewModels.InputModels.Exams;
+using ESchool.ViewModels.OutputModels.Api;
 using ESchool.ViewModels.OutputModels.Exam;
 
 namespace ESchool.Services.Contracts
@@ -16,6 +17,6 @@ namespace ESchool.Services.Contracts
 
         ExamOutputModel GetExamDetails(string examId);
 
-        
+        ExamApiOutputModel GetExamSolve(string id);
     }
 }

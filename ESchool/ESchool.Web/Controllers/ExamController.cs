@@ -35,6 +35,7 @@ namespace ESchool.Web.Controllers
             }
 
             var id = await this.examService.CreateExam(model);
+            //TODO: redirect to details
 
             return RedirectToAction("Index", "Home");
         }
@@ -45,6 +46,19 @@ namespace ESchool.Web.Controllers
             var result = this.examService.GetExamDetails(id);
 
             return this.View(result);
+        }
+
+        [HttpGet]
+        public IActionResult Solve(string id)
+        {
+            var exam = this.examService.GetExamSolve(id);
+            if (exam == null)
+            {
+                this.ViewData[GlobalConstants.Error] = GlobalConstants.RecordDoesntExist;
+                return this.RedirectToAction("Index", "Home");
+            }
+
+            return this.View(exam);
         }
     }
 }

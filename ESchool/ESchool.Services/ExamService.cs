@@ -8,6 +8,7 @@ using ESchool.Data;
 using ESchool.Models;
 using ESchool.Services.Contracts;
 using ESchool.ViewModels.InputModels.Exams;
+using ESchool.ViewModels.OutputModels.Api;
 using ESchool.ViewModels.OutputModels.Exam;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,19 @@ namespace ESchool.Services
                 .FirstOrDefault(x => x.Id == examId);
 
             var examOutput = Mapper.Map<ExamOutputModel>(exam);
+
+            return examOutput;
+        }
+
+        public ExamApiOutputModel GetExamSolve(string id)
+        {
+            var exam = this.Context.Exams
+                .Include(x => x.UserAnswers)
+                .Include(x => x.Questions)
+                .ThenInclude(x => x.PossibleAnswers)
+                .FirstOrDefault(x => x.Id == id);
+
+            var examOutput = Mapper.Map<ExamApiOutputModel>(exam);
 
             return examOutput;
         }

@@ -36,7 +36,7 @@ namespace ESchool.Web.Areas.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserAnswer>> Solve(ExamSolveInputModel model)
+        public ActionResult<UserAnswer> Solve(ExamSolveInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
