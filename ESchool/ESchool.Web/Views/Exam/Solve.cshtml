@@ -1,5 +1,5 @@
-﻿
-@using Newtonsoft.Json
+﻿@using Newtonsoft.Json
+@*//TODO: change it to exam solve model*@
 @model ExamApiOutputModel
 @{
     //TODO: change the id to name or sth else
@@ -51,8 +51,6 @@
 
 @section styles
 {
-    @* //TODO: check it *@
-    @*<script src="~/Content/slick-carousel"></script>*@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script src="/css/question.css"></script>
 }
@@ -67,7 +65,7 @@
         window.quiz = @Html.Raw(quizJson);
     </script>
 
-    @*<script src="/js/slick-carousel.js"></script>*@
+    <script src="/js/slick-carousel.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/js/solve-quiz.js"></script>
 

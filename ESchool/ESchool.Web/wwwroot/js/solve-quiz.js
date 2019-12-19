@@ -100,7 +100,7 @@
 
         var self = this;
 
-        console.log('Hello from Solve Quiz Controller');
+        console.log('Hello from Solve Quiz Controller init');
 
         self.questionTemplate = '/templates/solve-question-template.html';
         self.quiz = quiz;
