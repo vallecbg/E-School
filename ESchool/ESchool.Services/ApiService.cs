@@ -32,8 +32,9 @@ namespace ESchool.Services
             return result;
         }
 
-        public UserAnswer SolveExam(ExamSolveInputModel model)
+        public UserAnswer SolveExam(ExamApiSolveInputModel model, string userId)
         {
+            ;
             var exam = this.Context.Exams
                 .Include(x => x.UserAnswers)
                 .Include(x => x.Questions)
@@ -47,9 +48,11 @@ namespace ESchool.Services
                 .Where(x => model.SelectedAnswers.Any(ans => ans.Id == x.Id))
                 .ToList();
 
+
+
             var userAnswer = new UserAnswer()
             {
-                UserId = model.UserId,
+                UserId = userId,
                 ExamId = model.ExamId,
                 SelectedAnswers = selectedAnswers
             };

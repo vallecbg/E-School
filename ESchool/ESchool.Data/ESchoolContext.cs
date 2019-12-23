@@ -31,6 +31,7 @@ namespace ESchool.Data
         {
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new QuestionConfiguration());
+            builder.ApplyConfiguration(new OfferedAnswerConfiguration());
 
             base.OnModelCreating(builder);
         }

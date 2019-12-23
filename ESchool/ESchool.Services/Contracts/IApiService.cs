@@ -11,6 +11,6 @@ namespace ESchool.Services.Contracts
     {
         IEnumerable<ExamApiOutputModel> Exams();
 
-        UserAnswer SolveExam(ExamSolveInputModel model);
+        UserAnswer SolveExam(ExamApiSolveInputModel model, string userId);
     }
 }

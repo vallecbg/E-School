@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using ESchool.Models;
 using ESchool.Services.Constants;
@@ -36,18 +37,21 @@ namespace ESchool.Web.Areas.Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult<UserAnswer> Solve(ExamSolveInputModel model)
+        [Route(GlobalConstants.RouteConstants.PostSolve)]
+        public IActionResult Solve([FromBody]ExamApiSolveInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.BadRequest(this.ModelState);
+                return this.BadRequest();
             }
 
             try
             {
-                var result = this.ApiService.SolveExam(model);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var result = this.ApiService.SolveExam(model, userId);
                 //TODO: check if need to evaluate
-                return this.Ok(result);
+                //return this.Ok();
+                return CreatedAtRoute("Solve", new { id = model.ExamId }, result);
             }
             catch (Exception e)
             {

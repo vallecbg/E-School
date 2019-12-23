@@ -58,15 +58,17 @@
 
         self.submit = function submit() {
             var data = {
-                forQuizId: quiz.Id,
-                selectedAnswerIds: quiz.Questions.map(function (question) {
-                    console.log(question.Answers[question.selected].Id);
-                    var id = question.Answers[question.selected].Id;
-                    return id;
+                examId: quiz.Id,
+                selectedAnswers: quiz.Questions.map(function (question) {
+                    console.log(question.PossibleAnswers[question.selected]);
+                    var answer = question.PossibleAnswers[question.selected];
+                    return answer;
                 })
             };
 
-            $http.post('/SolveQuiz/solve', data)
+            console.log(JSON.stringify(data));
+
+            $http.post('/api/Solve', data)
                 .then(function (response) {
                     console.log(response);
                     document.open();

@@ -37,12 +37,12 @@
     };
 
     errorHandler.prototype.handleSoveQuizError = function (response) {
-        var message = extractModelStateErrors(response.data.modelState) ||
-            response.data.message ||
-            DEFFAULT_ERRORS.SOLVE_QUIZ;
+        //var message = extractModelStateErrors(response.data.modelState) ||
+        //    response.data.message ||
+        //    DEFFAULT_ERRORS.SOLVE_QUIZ;
 
         // Todo: beautify this notification
-        alert(message);
+        alert(response.data);
     };
 
     errorHandler.prototype.handleEditCategoryError = function (response) {
