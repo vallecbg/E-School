@@ -50,8 +50,7 @@ namespace ESchool.Web.Areas.Api.Controllers
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var result = this.ApiService.SolveExam(model, userId);
                 //TODO: check if need to evaluate
-                //return this.Ok();
-                return CreatedAtRoute("Solve", new { id = model.ExamId }, result);
+                return this.Ok(result);
             }
             catch (Exception e)
             {

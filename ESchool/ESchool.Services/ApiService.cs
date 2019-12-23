@@ -34,7 +34,6 @@ namespace ESchool.Services
 
         public UserAnswer SolveExam(ExamApiSolveInputModel model, string userId)
         {
-            ;
             var exam = this.Context.Exams
                 .Include(x => x.UserAnswers)
                 .Include(x => x.Questions)
