@@ -9,7 +9,7 @@ namespace ESchool.ViewModels.OutputModels.Api
     {
         public ExamApiOutputModel()
         {
-            this.UserAnswers = new List<UserAnswer>();
+            //this.UserAnswers = new List<UserAnswer>();
             this.Questions = new List<QuestionApiOutputModel>();
         }
 
@@ -25,7 +25,7 @@ namespace ESchool.ViewModels.OutputModels.Api
 
         public double MaxMarks { get; set; }
 
-        public ICollection<UserAnswer> UserAnswers { get; set; }
+        //public ICollection<UserAnswer> UserAnswers { get; set; }
 
         public ICollection<QuestionApiOutputModel> Questions { get; set; }
     }

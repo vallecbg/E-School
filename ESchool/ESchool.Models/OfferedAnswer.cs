@@ -6,6 +6,10 @@ namespace ESchool.Models
 {
     public class OfferedAnswer
     {
+        public OfferedAnswer()
+        {
+            this.SelectedAnswers = new List<UserOfferedAnswer>();
+        }
 
         public string Id { get; set; }
 
@@ -15,5 +19,7 @@ namespace ESchool.Models
 
         public string QuestionId { get; set; }
         public Question Question { get; set; }
+
+        public ICollection<UserOfferedAnswer> SelectedAnswers { get; set; }
     }
 }

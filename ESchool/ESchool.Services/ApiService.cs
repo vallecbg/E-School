@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using ESchool.Data;
@@ -32,7 +33,7 @@ namespace ESchool.Services
             return result;
         }
 
-        public UserAnswer SolveExam(ExamApiSolveInputModel model, string userId)
+        public async Task<IEnumerable<UserOfferedAnswer>> SolveExam(ExamApiSolveInputModel model, string userId)
         {
             var exam = this.Context.Exams
                 .Include(x => x.UserAnswers)
@@ -41,26 +42,36 @@ namespace ESchool.Services
                 .FirstOrDefault(x => x.Id == model.ExamId);
 
             //TODO: make some validations to exam
-
+            ;
             var selectedAnswers = this.Context.Questions
                 .SelectMany(x => x.PossibleAnswers)
                 .Where(x => model.SelectedAnswers.Any(ans => ans.Id == x.Id))
                 .ToList();
 
-
-
-            var userAnswer = new UserAnswer()
+            foreach (var answer in selectedAnswers)
             {
-                UserId = userId,
-                ExamId = model.ExamId,
-                SelectedAnswers = selectedAnswers
-            };
+                var userAnswer = new UserAnswer()
+                {
+                    ExamId = model.ExamId,
+                    UserId = userId
+                };
 
-            
-            this.Context.UserAnswers.Add(userAnswer);
-            this.Context.SaveChangesAsync();
+                var userOfferedAnswer = new UserOfferedAnswer()
+                {
+                    UserAnswer = userAnswer,
+                    OfferedAnswer = answer
+                };
 
-            return userAnswer;
+                this.Context.UserAnswers.Add(userAnswer);
+                this.Context.UserOfferedAnswers.Add(userOfferedAnswer);
+            }
+
+            await this.Context.SaveChangesAsync();
+            var result = this.Context.UserOfferedAnswers
+                .Include(x => x.OfferedAnswer)
+                .Include(x => x.UserAnswer)
+                .ToList();
+            return result;
         }
     }
 }

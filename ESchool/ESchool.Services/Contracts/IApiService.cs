@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using ESchool.Models;
 using ESchool.ViewModels.InputModels.Exams;
 using ESchool.ViewModels.OutputModels.Api;
@@ -11,6 +12,6 @@ namespace ESchool.Services.Contracts
     {
         IEnumerable<ExamApiOutputModel> Exams();
 
-        UserAnswer SolveExam(ExamApiSolveInputModel model, string userId);
+        Task<IEnumerable<UserOfferedAnswer>> SolveExam(ExamApiSolveInputModel model, string userId);
     }
 }

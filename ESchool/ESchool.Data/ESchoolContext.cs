@@ -18,6 +18,7 @@ namespace ESchool.Data
         public DbSet<ExamQuestionAnswer> ExamsQuestionsAnswers { get; set; }
         public DbSet<OfferedAnswer> OfferedAnswers { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<UserOfferedAnswer> UserOfferedAnswers { get; set; }
 
 
 
@@ -32,6 +33,7 @@ namespace ESchool.Data
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new QuestionConfiguration());
             builder.ApplyConfiguration(new OfferedAnswerConfiguration());
+            builder.ApplyConfiguration(new UserOfferedAnswerConfiguration());
 
             base.OnModelCreating(builder);
         }

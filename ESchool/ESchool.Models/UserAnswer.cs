@@ -8,7 +8,7 @@ namespace ESchool.Models
     {
         public UserAnswer()
         {
-            this.SelectedAnswers = new List<OfferedAnswer>();
+            this.SelectedAnswers = new List<UserOfferedAnswer>();
         }
 
         public string Id { get; set; }
@@ -19,6 +19,6 @@ namespace ESchool.Models
         public string UserId { get; set; }
         public User User { get; set; }
 
-        public ICollection<OfferedAnswer> SelectedAnswers { get; set; }
+        public ICollection<UserOfferedAnswer> SelectedAnswers { get; set; }
     }
 }
