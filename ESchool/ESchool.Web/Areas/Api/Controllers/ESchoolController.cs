@@ -38,24 +38,32 @@ namespace ESchool.Web.Areas.Api.Controllers
 
         [HttpPost]
         [Route(GlobalConstants.RouteConstants.PostSolve)]
-        public IActionResult Solve([FromBody]ExamApiSolveInputModel model)
+        public IActionResult Solve(ExamApiSolveInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.BadRequest();
             }
 
+            //TODO: fix the userid is null
             try
             {
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var result = this.ApiService.SolveExam(model, userId);
                 //TODO: check if need to evaluate
-                return this.Ok(result);
+                return this.Ok();
             }
             catch (Exception e)
             {
                 return this.BadRequest(e.Message);
             }
+        }
+
+        [HttpPost]
+        [Route(GlobalConstants.RouteConstants.Test)]
+        public IActionResult Test(string id)
+        {
+            return this.Ok();
         }
     }
 }

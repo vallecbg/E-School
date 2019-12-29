@@ -56,8 +56,8 @@ namespace ESchool.Web
                 .AddEntityFrameworkStores<ESchoolContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc(options =>
-                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
+            //services.AddMvc(options =>
+            //    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 
             //TODO: add services
             services.AddTransient<IApiService, ApiService>();
@@ -87,6 +87,11 @@ namespace ESchool.Web
 
             //TODO: add filters
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
