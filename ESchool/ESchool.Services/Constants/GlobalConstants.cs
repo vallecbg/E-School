@@ -24,7 +24,6 @@ namespace ESchool.Services.Constants
             public const string ApiRoute = "api/";
             public const string Exams = "Exams";
             public const string PostSolve = "Solve";
-            public const string Test = "Test";
         }
 
         //Users

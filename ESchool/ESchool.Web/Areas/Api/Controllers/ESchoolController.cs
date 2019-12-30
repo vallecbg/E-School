@@ -58,12 +58,5 @@ namespace ESchool.Web.Areas.Api.Controllers
                 return this.BadRequest(e.Message);
             }
         }
-
-        [HttpPost]
-        [Route(GlobalConstants.RouteConstants.Test)]
-        public IActionResult Test(string id)
-        {
-            return this.Ok();
-        }
     }
 }
