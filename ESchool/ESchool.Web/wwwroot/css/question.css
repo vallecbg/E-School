@@ -165,7 +165,7 @@
         }
 
         .question-slide .slide-controls .control-left {
-            background: url('/Content/images/Carousel-icons.png') 0 0;
+            background: url('/images/Carousel-icons.png') 0 0;
         }
 
         .question-slide .slide-controls .control-right {
@@ -174,15 +174,15 @@
             -o-transform: rotate(180deg);
             -ms-transform: rotate(180deg);
             transform: rotate(180deg);
-            background: url('/Content/images/Carousel-icons.png') 0 0;
+            background: url('/images/Carousel-icons.png') 0 0;
         }
 
         .question-slide .slide-controls .control-search {
-            background: url('/Content/images/Carousel-icons.png') 0 81px;
+            background: url('/images/Carousel-icons.png') 0 81px;
         }
 
         .question-slide .slide-controls .control-open {
-            background: url('/Content/images/Carousel-icons.png') 0 40px;
+            background: url('/images/Carousel-icons.png') 0 40px;
         }
 
     .question-slide .answers {

@@ -73,7 +73,8 @@
                     console.log(response);
                     document.open();
                     document.write(response.data);
-                    document.close();
+                    //document.close();
+                    document.redirect("/");
                 }, errorHandler.handleSoveQuizError);
         };
 
