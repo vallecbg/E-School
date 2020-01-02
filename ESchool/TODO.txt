@@ -1,4 +1,5 @@
 ---Major---
+Add correct styling and responsiveness for the exam solve
 Need to disable double solving the same exam
 
 ---Minor---
